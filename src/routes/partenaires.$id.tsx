@@ -15,7 +15,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   courses,
-  feedback,
+  feedbacks,
   getSalesRep,
   num,
   partners,
@@ -55,7 +55,7 @@ function PartnerDetail() {
   const { partner } = Route.useLoaderData();
   const own = courses.filter((c) => c.partnerId === partner.id);
   const pays = payments.filter((p) => own.some((c) => c.id === p.courseId));
-  const notes = feedback.filter((f) => f.author.includes(partner.contact.split(" ")[0] ?? "###"));
+  const notes = feedbacks.filter((f) => f.author === partner.contact);
 
   return (
     <>
@@ -69,7 +69,7 @@ function PartnerDetail() {
 
       <PageHeader
         title={partner.company}
-        subtitle={`${partner.type} · ${partner.zone} · partenaire depuis ${partner.since}`}
+        subtitle={`${partner.zone} · partenaire depuis ${partner.since}`}
       />
 
       <div className="mb-3 grid grid-cols-2 gap-3 lg:grid-cols-4">
@@ -94,7 +94,6 @@ function PartnerDetail() {
                 ["Identifiant", <span className="num">{partner.id}</span>],
                 ["Contact principal", partner.contact],
                 ["Téléphone", <span className="num">{partner.phone}</span>],
-                ["Type d'activité", partner.type],
                 ["Zone", partner.zone],
                 ["Commercial rattaché", getSalesRep(partner.salesRepId)?.name ?? "—"],
                 ["Client depuis", <span className="num">{partner.since}</span>],
@@ -136,7 +135,7 @@ function PartnerDetail() {
                       </Link>
                     </Td>
                     <Td mono>
-                      {c.date} {c.time}
+                      {c.createdAt} {c.time}
                     </Td>
                     <Td className="text-muted-foreground">
                       {c.pickup.label} → {c.dropoff.label}
@@ -170,7 +169,7 @@ function PartnerDetail() {
               <tbody>
                 {pays.map((p) => (
                   <Tr key={p.id}>
-                    <Td mono>{p.reference}</Td>
+                    <Td mono>{p.ref}</Td>
                     <Td mono>{p.courseId}</Td>
                     <Td>{p.method}</Td>
                     <Td align="right" mono>
@@ -179,9 +178,7 @@ function PartnerDetail() {
                     <Td>
                       <PaymentBadge status={p.status} />
                     </Td>
-                    <Td mono>
-                      {p.date} {p.time}
-                    </Td>
+                    <Td mono>{p.date}</Td>
                   </Tr>
                 ))}
               </tbody>
