@@ -17,6 +17,7 @@ import { Route as CoursesIdRouteImport } from './routes/courses.$id'
 import { Route as LivreursIndexRouteImport } from './routes/livreurs.index'
 import { Route as LivreursIdRouteImport } from './routes/livreurs.$id'
 import { Route as PartenairesIndexRouteImport } from './routes/partenaires.index'
+import { Route as PartenairesIdRouteImport } from './routes/partenaires.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -58,6 +59,11 @@ const PartenairesIndexRoute = PartenairesIndexRouteImport.update({
   path: '/partenaires/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PartenairesIdRoute = PartenairesIdRouteImport.update({
+  id: '/partenaires/$id',
+  path: '/partenaires/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -65,6 +71,7 @@ export interface FileRoutesByFullPath {
   '/dispatch': typeof DispatchRoute
   '/courses/$id': typeof CoursesIdRoute
   '/livreurs/$id': typeof LivreursIdRoute
+  '/partenaires/$id': typeof PartenairesIdRoute
   '/courses/': typeof CoursesIndexRoute
   '/livreurs/': typeof LivreursIndexRoute
   '/partenaires/': typeof PartenairesIndexRoute
@@ -75,6 +82,7 @@ export interface FileRoutesByTo {
   '/dispatch': typeof DispatchRoute
   '/courses/$id': typeof CoursesIdRoute
   '/livreurs/$id': typeof LivreursIdRoute
+  '/partenaires/$id': typeof PartenairesIdRoute
   '/courses': typeof CoursesIndexRoute
   '/livreurs': typeof LivreursIndexRoute
   '/partenaires': typeof PartenairesIndexRoute
@@ -86,6 +94,7 @@ export interface FileRoutesById {
   '/dispatch': typeof DispatchRoute
   '/courses/$id': typeof CoursesIdRoute
   '/livreurs/$id': typeof LivreursIdRoute
+  '/partenaires/$id': typeof PartenairesIdRoute
   '/courses/': typeof CoursesIndexRoute
   '/livreurs/': typeof LivreursIndexRoute
   '/partenaires/': typeof PartenairesIndexRoute
@@ -98,6 +107,7 @@ export interface FileRouteTypes {
     | '/dispatch'
     | '/courses/$id'
     | '/livreurs/$id'
+    | '/partenaires/$id'
     | '/courses/'
     | '/livreurs/'
     | '/partenaires/'
@@ -108,6 +118,7 @@ export interface FileRouteTypes {
     | '/dispatch'
     | '/courses/$id'
     | '/livreurs/$id'
+    | '/partenaires/$id'
     | '/courses'
     | '/livreurs'
     | '/partenaires'
@@ -118,6 +129,7 @@ export interface FileRouteTypes {
     | '/dispatch'
     | '/courses/$id'
     | '/livreurs/$id'
+    | '/partenaires/$id'
     | '/courses/'
     | '/livreurs/'
     | '/partenaires/'
@@ -129,6 +141,7 @@ export interface RootRouteChildren {
   DispatchRoute: typeof DispatchRoute
   CoursesIdRoute: typeof CoursesIdRoute
   LivreursIdRoute: typeof LivreursIdRoute
+  PartenairesIdRoute: typeof PartenairesIdRoute
   CoursesIndexRoute: typeof CoursesIndexRoute
   LivreursIndexRoute: typeof LivreursIndexRoute
   PartenairesIndexRoute: typeof PartenairesIndexRoute
@@ -192,6 +205,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PartenairesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/partenaires/$id': {
+      id: '/partenaires/$id'
+      path: '/partenaires/$id'
+      fullPath: '/partenaires/$id'
+      preLoaderRoute: typeof PartenairesIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -201,6 +221,7 @@ const rootRouteChildren: RootRouteChildren = {
   DispatchRoute: DispatchRoute,
   CoursesIdRoute: CoursesIdRoute,
   LivreursIdRoute: LivreursIdRoute,
+  PartenairesIdRoute: PartenairesIdRoute,
   CoursesIndexRoute: CoursesIndexRoute,
   LivreursIndexRoute: LivreursIndexRoute,
   PartenairesIndexRoute: PartenairesIndexRoute,
