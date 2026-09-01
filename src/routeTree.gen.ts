@@ -18,6 +18,7 @@ import { Route as DusRouteImport } from './routes/dus'
 import { Route as HistoriqueRouteImport } from './routes/historique'
 import { Route as NotificationsRouteImport } from './routes/notifications'
 import { Route as PaiementsRouteImport } from './routes/paiements'
+import { Route as ParametresRouteImport } from './routes/parametres'
 import { Route as RapportsRouteImport } from './routes/rapports'
 import { Route as TarificationRouteImport } from './routes/tarification'
 import { Route as CoursesIndexRouteImport } from './routes/courses.index'
@@ -72,6 +73,11 @@ const PaiementsRoute = PaiementsRouteImport.update({
   path: '/paiements',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ParametresRoute = ParametresRouteImport.update({
+  id: '/parametres',
+  path: '/parametres',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RapportsRoute = RapportsRouteImport.update({
   id: '/rapports',
   path: '/rapports',
@@ -123,6 +129,7 @@ export interface FileRoutesByFullPath {
   '/historique': typeof HistoriqueRoute
   '/notifications': typeof NotificationsRoute
   '/paiements': typeof PaiementsRoute
+  '/parametres': typeof ParametresRoute
   '/rapports': typeof RapportsRoute
   '/tarification': typeof TarificationRoute
   '/courses/$id': typeof CoursesIdRoute
@@ -142,6 +149,7 @@ export interface FileRoutesByTo {
   '/historique': typeof HistoriqueRoute
   '/notifications': typeof NotificationsRoute
   '/paiements': typeof PaiementsRoute
+  '/parametres': typeof ParametresRoute
   '/rapports': typeof RapportsRoute
   '/tarification': typeof TarificationRoute
   '/courses/$id': typeof CoursesIdRoute
@@ -162,6 +170,7 @@ export interface FileRoutesById {
   '/historique': typeof HistoriqueRoute
   '/notifications': typeof NotificationsRoute
   '/paiements': typeof PaiementsRoute
+  '/parametres': typeof ParametresRoute
   '/rapports': typeof RapportsRoute
   '/tarification': typeof TarificationRoute
   '/courses/$id': typeof CoursesIdRoute
@@ -183,6 +192,7 @@ export interface FileRouteTypes {
     | '/historique'
     | '/notifications'
     | '/paiements'
+    | '/parametres'
     | '/rapports'
     | '/tarification'
     | '/courses/$id'
@@ -202,6 +212,7 @@ export interface FileRouteTypes {
     | '/historique'
     | '/notifications'
     | '/paiements'
+    | '/parametres'
     | '/rapports'
     | '/tarification'
     | '/courses/$id'
@@ -221,6 +232,7 @@ export interface FileRouteTypes {
     | '/historique'
     | '/notifications'
     | '/paiements'
+    | '/parametres'
     | '/rapports'
     | '/tarification'
     | '/courses/$id'
@@ -241,6 +253,7 @@ export interface RootRouteChildren {
   HistoriqueRoute: typeof HistoriqueRoute
   NotificationsRoute: typeof NotificationsRoute
   PaiementsRoute: typeof PaiementsRoute
+  ParametresRoute: typeof ParametresRoute
   RapportsRoute: typeof RapportsRoute
   TarificationRoute: typeof TarificationRoute
   CoursesIdRoute: typeof CoursesIdRoute
@@ -316,6 +329,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PaiementsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/parametres': {
+      id: '/parametres'
+      path: '/parametres'
+      fullPath: '/parametres'
+      preLoaderRoute: typeof ParametresRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/rapports': {
       id: '/rapports'
       path: '/rapports'
@@ -385,6 +405,7 @@ const rootRouteChildren: RootRouteChildren = {
   HistoriqueRoute: HistoriqueRoute,
   NotificationsRoute: NotificationsRoute,
   PaiementsRoute: PaiementsRoute,
+  ParametresRoute: ParametresRoute,
   RapportsRoute: RapportsRoute,
   TarificationRoute: TarificationRoute,
   CoursesIdRoute: CoursesIdRoute,
