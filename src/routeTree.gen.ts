@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AgencesRouteImport } from './routes/agences'
 import { Route as DispatchRouteImport } from './routes/dispatch'
 import { Route as CoursesIndexRouteImport } from './routes/courses.index'
 import { Route as CoursesIdRouteImport } from './routes/courses.$id'
@@ -19,6 +20,11 @@ import { Route as LivreursIdRouteImport } from './routes/livreurs.$id'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgencesRoute = AgencesRouteImport.update({
+  id: '/agences',
+  path: '/agences',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DispatchRoute = DispatchRouteImport.update({
@@ -49,6 +55,7 @@ const LivreursIdRoute = LivreursIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/agences': typeof AgencesRoute
   '/dispatch': typeof DispatchRoute
   '/courses/$id': typeof CoursesIdRoute
   '/livreurs/$id': typeof LivreursIdRoute
@@ -57,6 +64,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/agences': typeof AgencesRoute
   '/dispatch': typeof DispatchRoute
   '/courses/$id': typeof CoursesIdRoute
   '/livreurs/$id': typeof LivreursIdRoute
@@ -66,6 +74,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/agences': typeof AgencesRoute
   '/dispatch': typeof DispatchRoute
   '/courses/$id': typeof CoursesIdRoute
   '/livreurs/$id': typeof LivreursIdRoute
@@ -76,6 +85,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/agences'
     | '/dispatch'
     | '/courses/$id'
     | '/livreurs/$id'
@@ -84,6 +94,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/agences'
     | '/dispatch'
     | '/courses/$id'
     | '/livreurs/$id'
@@ -92,6 +103,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/agences'
     | '/dispatch'
     | '/courses/$id'
     | '/livreurs/$id'
@@ -101,6 +113,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AgencesRoute: typeof AgencesRoute
   DispatchRoute: typeof DispatchRoute
   CoursesIdRoute: typeof CoursesIdRoute
   LivreursIdRoute: typeof LivreursIdRoute
@@ -115,6 +128,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agences': {
+      id: '/agences'
+      path: '/agences'
+      fullPath: '/agences'
+      preLoaderRoute: typeof AgencesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dispatch': {
@@ -157,6 +177,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AgencesRoute: AgencesRoute,
   DispatchRoute: DispatchRoute,
   CoursesIdRoute: CoursesIdRoute,
   LivreursIdRoute: LivreursIdRoute,
