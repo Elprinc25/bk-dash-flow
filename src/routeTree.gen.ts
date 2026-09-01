@@ -10,33 +10,258 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AgencesRouteImport } from './routes/agences'
+import { Route as CommentairesRouteImport } from './routes/commentaires'
+import { Route as CommerciauxRouteImport } from './routes/commerciaux'
+import { Route as DispatchRouteImport } from './routes/dispatch'
+import { Route as DusRouteImport } from './routes/dus'
+import { Route as HistoriqueRouteImport } from './routes/historique'
+import { Route as NotificationsRouteImport } from './routes/notifications'
+import { Route as PaiementsRouteImport } from './routes/paiements'
+import { Route as ParametresRouteImport } from './routes/parametres'
+import { Route as RapportsRouteImport } from './routes/rapports'
+import { Route as TarificationRouteImport } from './routes/tarification'
+import { Route as CoursesIndexRouteImport } from './routes/courses.index'
+import { Route as CoursesIdRouteImport } from './routes/courses.$id'
+import { Route as LivreursIndexRouteImport } from './routes/livreurs.index'
+import { Route as LivreursIdRouteImport } from './routes/livreurs.$id'
+import { Route as PartenairesIndexRouteImport } from './routes/partenaires.index'
+import { Route as PartenairesIdRouteImport } from './routes/partenaires.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AgencesRoute = AgencesRouteImport.update({
+  id: '/agences',
+  path: '/agences',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommentairesRoute = CommentairesRouteImport.update({
+  id: '/commentaires',
+  path: '/commentaires',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommerciauxRoute = CommerciauxRouteImport.update({
+  id: '/commerciaux',
+  path: '/commerciaux',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DispatchRoute = DispatchRouteImport.update({
+  id: '/dispatch',
+  path: '/dispatch',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DusRoute = DusRouteImport.update({
+  id: '/dus',
+  path: '/dus',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HistoriqueRoute = HistoriqueRouteImport.update({
+  id: '/historique',
+  path: '/historique',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotificationsRoute = NotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaiementsRoute = PaiementsRouteImport.update({
+  id: '/paiements',
+  path: '/paiements',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ParametresRoute = ParametresRouteImport.update({
+  id: '/parametres',
+  path: '/parametres',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RapportsRoute = RapportsRouteImport.update({
+  id: '/rapports',
+  path: '/rapports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TarificationRoute = TarificationRouteImport.update({
+  id: '/tarification',
+  path: '/tarification',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CoursesIndexRoute = CoursesIndexRouteImport.update({
+  id: '/courses/',
+  path: '/courses/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CoursesIdRoute = CoursesIdRouteImport.update({
+  id: '/courses/$id',
+  path: '/courses/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LivreursIndexRoute = LivreursIndexRouteImport.update({
+  id: '/livreurs/',
+  path: '/livreurs/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LivreursIdRoute = LivreursIdRouteImport.update({
+  id: '/livreurs/$id',
+  path: '/livreurs/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PartenairesIndexRoute = PartenairesIndexRouteImport.update({
+  id: '/partenaires/',
+  path: '/partenaires/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PartenairesIdRoute = PartenairesIdRouteImport.update({
+  id: '/partenaires/$id',
+  path: '/partenaires/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/agences': typeof AgencesRoute
+  '/commentaires': typeof CommentairesRoute
+  '/commerciaux': typeof CommerciauxRoute
+  '/dispatch': typeof DispatchRoute
+  '/dus': typeof DusRoute
+  '/historique': typeof HistoriqueRoute
+  '/notifications': typeof NotificationsRoute
+  '/paiements': typeof PaiementsRoute
+  '/parametres': typeof ParametresRoute
+  '/rapports': typeof RapportsRoute
+  '/tarification': typeof TarificationRoute
+  '/courses/$id': typeof CoursesIdRoute
+  '/livreurs/$id': typeof LivreursIdRoute
+  '/partenaires/$id': typeof PartenairesIdRoute
+  '/courses/': typeof CoursesIndexRoute
+  '/livreurs/': typeof LivreursIndexRoute
+  '/partenaires/': typeof PartenairesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/agences': typeof AgencesRoute
+  '/commentaires': typeof CommentairesRoute
+  '/commerciaux': typeof CommerciauxRoute
+  '/dispatch': typeof DispatchRoute
+  '/dus': typeof DusRoute
+  '/historique': typeof HistoriqueRoute
+  '/notifications': typeof NotificationsRoute
+  '/paiements': typeof PaiementsRoute
+  '/parametres': typeof ParametresRoute
+  '/rapports': typeof RapportsRoute
+  '/tarification': typeof TarificationRoute
+  '/courses/$id': typeof CoursesIdRoute
+  '/livreurs/$id': typeof LivreursIdRoute
+  '/partenaires/$id': typeof PartenairesIdRoute
+  '/courses': typeof CoursesIndexRoute
+  '/livreurs': typeof LivreursIndexRoute
+  '/partenaires': typeof PartenairesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/agences': typeof AgencesRoute
+  '/commentaires': typeof CommentairesRoute
+  '/commerciaux': typeof CommerciauxRoute
+  '/dispatch': typeof DispatchRoute
+  '/dus': typeof DusRoute
+  '/historique': typeof HistoriqueRoute
+  '/notifications': typeof NotificationsRoute
+  '/paiements': typeof PaiementsRoute
+  '/parametres': typeof ParametresRoute
+  '/rapports': typeof RapportsRoute
+  '/tarification': typeof TarificationRoute
+  '/courses/$id': typeof CoursesIdRoute
+  '/livreurs/$id': typeof LivreursIdRoute
+  '/partenaires/$id': typeof PartenairesIdRoute
+  '/courses/': typeof CoursesIndexRoute
+  '/livreurs/': typeof LivreursIndexRoute
+  '/partenaires/': typeof PartenairesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/agences'
+    | '/commentaires'
+    | '/commerciaux'
+    | '/dispatch'
+    | '/dus'
+    | '/historique'
+    | '/notifications'
+    | '/paiements'
+    | '/parametres'
+    | '/rapports'
+    | '/tarification'
+    | '/courses/$id'
+    | '/livreurs/$id'
+    | '/partenaires/$id'
+    | '/courses/'
+    | '/livreurs/'
+    | '/partenaires/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/agences'
+    | '/commentaires'
+    | '/commerciaux'
+    | '/dispatch'
+    | '/dus'
+    | '/historique'
+    | '/notifications'
+    | '/paiements'
+    | '/parametres'
+    | '/rapports'
+    | '/tarification'
+    | '/courses/$id'
+    | '/livreurs/$id'
+    | '/partenaires/$id'
+    | '/courses'
+    | '/livreurs'
+    | '/partenaires'
+  id:
+    | '__root__'
+    | '/'
+    | '/agences'
+    | '/commentaires'
+    | '/commerciaux'
+    | '/dispatch'
+    | '/dus'
+    | '/historique'
+    | '/notifications'
+    | '/paiements'
+    | '/parametres'
+    | '/rapports'
+    | '/tarification'
+    | '/courses/$id'
+    | '/livreurs/$id'
+    | '/partenaires/$id'
+    | '/courses/'
+    | '/livreurs/'
+    | '/partenaires/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AgencesRoute: typeof AgencesRoute
+  CommentairesRoute: typeof CommentairesRoute
+  CommerciauxRoute: typeof CommerciauxRoute
+  DispatchRoute: typeof DispatchRoute
+  DusRoute: typeof DusRoute
+  HistoriqueRoute: typeof HistoriqueRoute
+  NotificationsRoute: typeof NotificationsRoute
+  PaiementsRoute: typeof PaiementsRoute
+  ParametresRoute: typeof ParametresRoute
+  RapportsRoute: typeof RapportsRoute
+  TarificationRoute: typeof TarificationRoute
+  CoursesIdRoute: typeof CoursesIdRoute
+  LivreursIdRoute: typeof LivreursIdRoute
+  PartenairesIdRoute: typeof PartenairesIdRoute
+  CoursesIndexRoute: typeof CoursesIndexRoute
+  LivreursIndexRoute: typeof LivreursIndexRoute
+  PartenairesIndexRoute: typeof PartenairesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +273,147 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/agences': {
+      id: '/agences'
+      path: '/agences'
+      fullPath: '/agences'
+      preLoaderRoute: typeof AgencesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/commentaires': {
+      id: '/commentaires'
+      path: '/commentaires'
+      fullPath: '/commentaires'
+      preLoaderRoute: typeof CommentairesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/commerciaux': {
+      id: '/commerciaux'
+      path: '/commerciaux'
+      fullPath: '/commerciaux'
+      preLoaderRoute: typeof CommerciauxRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dispatch': {
+      id: '/dispatch'
+      path: '/dispatch'
+      fullPath: '/dispatch'
+      preLoaderRoute: typeof DispatchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dus': {
+      id: '/dus'
+      path: '/dus'
+      fullPath: '/dus'
+      preLoaderRoute: typeof DusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/historique': {
+      id: '/historique'
+      path: '/historique'
+      fullPath: '/historique'
+      preLoaderRoute: typeof HistoriqueRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notifications': {
+      id: '/notifications'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof NotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/paiements': {
+      id: '/paiements'
+      path: '/paiements'
+      fullPath: '/paiements'
+      preLoaderRoute: typeof PaiementsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/parametres': {
+      id: '/parametres'
+      path: '/parametres'
+      fullPath: '/parametres'
+      preLoaderRoute: typeof ParametresRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rapports': {
+      id: '/rapports'
+      path: '/rapports'
+      fullPath: '/rapports'
+      preLoaderRoute: typeof RapportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tarification': {
+      id: '/tarification'
+      path: '/tarification'
+      fullPath: '/tarification'
+      preLoaderRoute: typeof TarificationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/courses/': {
+      id: '/courses/'
+      path: '/courses'
+      fullPath: '/courses/'
+      preLoaderRoute: typeof CoursesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/courses/$id': {
+      id: '/courses/$id'
+      path: '/courses/$id'
+      fullPath: '/courses/$id'
+      preLoaderRoute: typeof CoursesIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/livreurs/': {
+      id: '/livreurs/'
+      path: '/livreurs'
+      fullPath: '/livreurs/'
+      preLoaderRoute: typeof LivreursIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/livreurs/$id': {
+      id: '/livreurs/$id'
+      path: '/livreurs/$id'
+      fullPath: '/livreurs/$id'
+      preLoaderRoute: typeof LivreursIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/partenaires/': {
+      id: '/partenaires/'
+      path: '/partenaires'
+      fullPath: '/partenaires/'
+      preLoaderRoute: typeof PartenairesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/partenaires/$id': {
+      id: '/partenaires/$id'
+      path: '/partenaires/$id'
+      fullPath: '/partenaires/$id'
+      preLoaderRoute: typeof PartenairesIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AgencesRoute: AgencesRoute,
+  CommentairesRoute: CommentairesRoute,
+  CommerciauxRoute: CommerciauxRoute,
+  DispatchRoute: DispatchRoute,
+  DusRoute: DusRoute,
+  HistoriqueRoute: HistoriqueRoute,
+  NotificationsRoute: NotificationsRoute,
+  PaiementsRoute: PaiementsRoute,
+  ParametresRoute: ParametresRoute,
+  RapportsRoute: RapportsRoute,
+  TarificationRoute: TarificationRoute,
+  CoursesIdRoute: CoursesIdRoute,
+  LivreursIdRoute: LivreursIdRoute,
+  PartenairesIdRoute: PartenairesIdRoute,
+  CoursesIndexRoute: CoursesIndexRoute,
+  LivreursIndexRoute: LivreursIndexRoute,
+  PartenairesIndexRoute: PartenairesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
