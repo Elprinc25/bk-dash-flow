@@ -101,7 +101,7 @@ function NotificationsPage() {
       <Panel bodyClassName="p-0">
         {list.length === 0 ? (
           <div className="p-6">
-            <EmptyState title="Aucune notification" description="Rien à signaler pour ce filtre." />
+            <EmptyState title="Aucune notification" hint="Rien à signaler pour ce filtre." />
           </div>
         ) : (
           <ul className="divide-y divide-border">

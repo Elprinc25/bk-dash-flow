@@ -14,6 +14,7 @@ import { Route as AgencesRouteImport } from './routes/agences'
 import { Route as CommerciauxRouteImport } from './routes/commerciaux'
 import { Route as DispatchRouteImport } from './routes/dispatch'
 import { Route as DusRouteImport } from './routes/dus'
+import { Route as NotificationsRouteImport } from './routes/notifications'
 import { Route as PaiementsRouteImport } from './routes/paiements'
 import { Route as TarificationRouteImport } from './routes/tarification'
 import { Route as CoursesIndexRouteImport } from './routes/courses.index'
@@ -46,6 +47,11 @@ const DispatchRoute = DispatchRouteImport.update({
 const DusRoute = DusRouteImport.update({
   id: '/dus',
   path: '/dus',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotificationsRoute = NotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PaiementsRoute = PaiementsRouteImport.update({
@@ -95,6 +101,7 @@ export interface FileRoutesByFullPath {
   '/commerciaux': typeof CommerciauxRoute
   '/dispatch': typeof DispatchRoute
   '/dus': typeof DusRoute
+  '/notifications': typeof NotificationsRoute
   '/paiements': typeof PaiementsRoute
   '/tarification': typeof TarificationRoute
   '/courses/$id': typeof CoursesIdRoute
@@ -110,6 +117,7 @@ export interface FileRoutesByTo {
   '/commerciaux': typeof CommerciauxRoute
   '/dispatch': typeof DispatchRoute
   '/dus': typeof DusRoute
+  '/notifications': typeof NotificationsRoute
   '/paiements': typeof PaiementsRoute
   '/tarification': typeof TarificationRoute
   '/courses/$id': typeof CoursesIdRoute
@@ -126,6 +134,7 @@ export interface FileRoutesById {
   '/commerciaux': typeof CommerciauxRoute
   '/dispatch': typeof DispatchRoute
   '/dus': typeof DusRoute
+  '/notifications': typeof NotificationsRoute
   '/paiements': typeof PaiementsRoute
   '/tarification': typeof TarificationRoute
   '/courses/$id': typeof CoursesIdRoute
@@ -143,6 +152,7 @@ export interface FileRouteTypes {
     | '/commerciaux'
     | '/dispatch'
     | '/dus'
+    | '/notifications'
     | '/paiements'
     | '/tarification'
     | '/courses/$id'
@@ -158,6 +168,7 @@ export interface FileRouteTypes {
     | '/commerciaux'
     | '/dispatch'
     | '/dus'
+    | '/notifications'
     | '/paiements'
     | '/tarification'
     | '/courses/$id'
@@ -173,6 +184,7 @@ export interface FileRouteTypes {
     | '/commerciaux'
     | '/dispatch'
     | '/dus'
+    | '/notifications'
     | '/paiements'
     | '/tarification'
     | '/courses/$id'
@@ -189,6 +201,7 @@ export interface RootRouteChildren {
   CommerciauxRoute: typeof CommerciauxRoute
   DispatchRoute: typeof DispatchRoute
   DusRoute: typeof DusRoute
+  NotificationsRoute: typeof NotificationsRoute
   PaiementsRoute: typeof PaiementsRoute
   TarificationRoute: typeof TarificationRoute
   CoursesIdRoute: typeof CoursesIdRoute
@@ -234,6 +247,13 @@ declare module '@tanstack/react-router' {
       path: '/dus'
       fullPath: '/dus'
       preLoaderRoute: typeof DusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notifications': {
+      id: '/notifications'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof NotificationsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/paiements': {
@@ -301,6 +321,7 @@ const rootRouteChildren: RootRouteChildren = {
   CommerciauxRoute: CommerciauxRoute,
   DispatchRoute: DispatchRoute,
   DusRoute: DusRoute,
+  NotificationsRoute: NotificationsRoute,
   PaiementsRoute: PaiementsRoute,
   TarificationRoute: TarificationRoute,
   CoursesIdRoute: CoursesIdRoute,
