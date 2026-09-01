@@ -15,6 +15,7 @@ import { Route as CommentairesRouteImport } from './routes/commentaires'
 import { Route as CommerciauxRouteImport } from './routes/commerciaux'
 import { Route as DispatchRouteImport } from './routes/dispatch'
 import { Route as DusRouteImport } from './routes/dus'
+import { Route as HistoriqueRouteImport } from './routes/historique'
 import { Route as NotificationsRouteImport } from './routes/notifications'
 import { Route as PaiementsRouteImport } from './routes/paiements'
 import { Route as RapportsRouteImport } from './routes/rapports'
@@ -54,6 +55,11 @@ const DispatchRoute = DispatchRouteImport.update({
 const DusRoute = DusRouteImport.update({
   id: '/dus',
   path: '/dus',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HistoriqueRoute = HistoriqueRouteImport.update({
+  id: '/historique',
+  path: '/historique',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NotificationsRoute = NotificationsRouteImport.update({
@@ -114,6 +120,7 @@ export interface FileRoutesByFullPath {
   '/commerciaux': typeof CommerciauxRoute
   '/dispatch': typeof DispatchRoute
   '/dus': typeof DusRoute
+  '/historique': typeof HistoriqueRoute
   '/notifications': typeof NotificationsRoute
   '/paiements': typeof PaiementsRoute
   '/rapports': typeof RapportsRoute
@@ -132,6 +139,7 @@ export interface FileRoutesByTo {
   '/commerciaux': typeof CommerciauxRoute
   '/dispatch': typeof DispatchRoute
   '/dus': typeof DusRoute
+  '/historique': typeof HistoriqueRoute
   '/notifications': typeof NotificationsRoute
   '/paiements': typeof PaiementsRoute
   '/rapports': typeof RapportsRoute
@@ -151,6 +159,7 @@ export interface FileRoutesById {
   '/commerciaux': typeof CommerciauxRoute
   '/dispatch': typeof DispatchRoute
   '/dus': typeof DusRoute
+  '/historique': typeof HistoriqueRoute
   '/notifications': typeof NotificationsRoute
   '/paiements': typeof PaiementsRoute
   '/rapports': typeof RapportsRoute
@@ -171,6 +180,7 @@ export interface FileRouteTypes {
     | '/commerciaux'
     | '/dispatch'
     | '/dus'
+    | '/historique'
     | '/notifications'
     | '/paiements'
     | '/rapports'
@@ -189,6 +199,7 @@ export interface FileRouteTypes {
     | '/commerciaux'
     | '/dispatch'
     | '/dus'
+    | '/historique'
     | '/notifications'
     | '/paiements'
     | '/rapports'
@@ -207,6 +218,7 @@ export interface FileRouteTypes {
     | '/commerciaux'
     | '/dispatch'
     | '/dus'
+    | '/historique'
     | '/notifications'
     | '/paiements'
     | '/rapports'
@@ -226,6 +238,7 @@ export interface RootRouteChildren {
   CommerciauxRoute: typeof CommerciauxRoute
   DispatchRoute: typeof DispatchRoute
   DusRoute: typeof DusRoute
+  HistoriqueRoute: typeof HistoriqueRoute
   NotificationsRoute: typeof NotificationsRoute
   PaiementsRoute: typeof PaiementsRoute
   RapportsRoute: typeof RapportsRoute
@@ -280,6 +293,13 @@ declare module '@tanstack/react-router' {
       path: '/dus'
       fullPath: '/dus'
       preLoaderRoute: typeof DusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/historique': {
+      id: '/historique'
+      path: '/historique'
+      fullPath: '/historique'
+      preLoaderRoute: typeof HistoriqueRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/notifications': {
@@ -362,6 +382,7 @@ const rootRouteChildren: RootRouteChildren = {
   CommerciauxRoute: CommerciauxRoute,
   DispatchRoute: DispatchRoute,
   DusRoute: DusRoute,
+  HistoriqueRoute: HistoriqueRoute,
   NotificationsRoute: NotificationsRoute,
   PaiementsRoute: PaiementsRoute,
   RapportsRoute: RapportsRoute,
