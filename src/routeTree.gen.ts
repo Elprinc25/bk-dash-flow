@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AgencesRouteImport } from './routes/agences'
+import { Route as CommentairesRouteImport } from './routes/commentaires'
 import { Route as CommerciauxRouteImport } from './routes/commerciaux'
 import { Route as DispatchRouteImport } from './routes/dispatch'
 import { Route as DusRouteImport } from './routes/dus'
@@ -33,6 +34,11 @@ const IndexRoute = IndexRouteImport.update({
 const AgencesRoute = AgencesRouteImport.update({
   id: '/agences',
   path: '/agences',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommentairesRoute = CommentairesRouteImport.update({
+  id: '/commentaires',
+  path: '/commentaires',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CommerciauxRoute = CommerciauxRouteImport.update({
@@ -104,6 +110,7 @@ const PartenairesIdRoute = PartenairesIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/agences': typeof AgencesRoute
+  '/commentaires': typeof CommentairesRoute
   '/commerciaux': typeof CommerciauxRoute
   '/dispatch': typeof DispatchRoute
   '/dus': typeof DusRoute
@@ -121,6 +128,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/agences': typeof AgencesRoute
+  '/commentaires': typeof CommentairesRoute
   '/commerciaux': typeof CommerciauxRoute
   '/dispatch': typeof DispatchRoute
   '/dus': typeof DusRoute
@@ -139,6 +147,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/agences': typeof AgencesRoute
+  '/commentaires': typeof CommentairesRoute
   '/commerciaux': typeof CommerciauxRoute
   '/dispatch': typeof DispatchRoute
   '/dus': typeof DusRoute
@@ -158,6 +167,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/agences'
+    | '/commentaires'
     | '/commerciaux'
     | '/dispatch'
     | '/dus'
@@ -175,6 +185,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/agences'
+    | '/commentaires'
     | '/commerciaux'
     | '/dispatch'
     | '/dus'
@@ -192,6 +203,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/agences'
+    | '/commentaires'
     | '/commerciaux'
     | '/dispatch'
     | '/dus'
@@ -210,6 +222,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AgencesRoute: typeof AgencesRoute
+  CommentairesRoute: typeof CommentairesRoute
   CommerciauxRoute: typeof CommerciauxRoute
   DispatchRoute: typeof DispatchRoute
   DusRoute: typeof DusRoute
@@ -239,6 +252,13 @@ declare module '@tanstack/react-router' {
       path: '/agences'
       fullPath: '/agences'
       preLoaderRoute: typeof AgencesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/commentaires': {
+      id: '/commentaires'
+      path: '/commentaires'
+      fullPath: '/commentaires'
+      preLoaderRoute: typeof CommentairesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/commerciaux': {
@@ -338,6 +358,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AgencesRoute: AgencesRoute,
+  CommentairesRoute: CommentairesRoute,
   CommerciauxRoute: CommerciauxRoute,
   DispatchRoute: DispatchRoute,
   DusRoute: DusRoute,
