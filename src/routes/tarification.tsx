@@ -113,7 +113,7 @@ function PricingPage() {
         <TabsContent value="zone" className="mt-3">
           <Panel
             title="Forfaits par zone"
-            actions={
+            aside={
               <button
                 type="button"
                 onClick={() => toast.info("Ajout d'une zone tarifaire (prototype)")}
